@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UniManage AI - Library & Learning</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+    <aside class="sidebar">
+
+        <div class="logo">
+            🎓
+            <div>
+                <h2>UniManage AI</h2>
+                <p>Library & Learning</p>
+            </div>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active" onclick="showPage('dashboard', this)">
+                🏠 Dashboard
+            </li>
+
+            <li onclick="showPage('student', this)">
+                👨‍🎓 Student
+            </li>
+
+            <li onclick="showPage('library', this)">
+                📚 Library
+            </li>
+
+            <li onclick="showPage('mybooks', this)">
+                📖 My Books
+            </li>
+
+            <li onclick="showPage('ai', this)">
+                🤖 AI Recommendation
+            </li>
+
+            <li onclick="showPage('learning', this)">
+                🧠 Learning Plan
+            </li>
+
+            <li onclick="showPage('settings', this)">
+                ⚙ Settings
+            </li>
+
+        </ul>
+
+        <div class="user">
+            <div class="avatar">K</div>
+
+            <div>
+                <b>Godhavari D</b>
+                <small>Student</small>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="header">
+
+            <div>
+                <p class="small-title">AI LIBRARY & LEARNING</p>
+
+                <h1 id="pageTitle">
+                    Welcome Back, Godhavari! 👋
+                </h1>
+            </div>
+
+            <div class="profile">
+                Godhavari D
+            </div>
+
+        </header>
+
+        <section id="dashboard" class="page active">
+
+            <div class="hero">
+
+                <div>
+
+                    <span class="badge">
+                        AI POWERED LEARNING
+                    </span>
+
+                    <h2>
+                        Learn smarter.<br>
+                        Read better.
+                    </h2>
+
+                    <p>
+                        Find books, track your learning and
+                        get personalized AI recommendations.
+                    </p>
+
+                    <button onclick="showPage('ai')" class="primary">
+                        Get AI Recommendations →
+                    </button>
+
+                </div>
+
+                <div class="robot">
+                    🤖
+                </div>
+
+            </div>
+
+            <div class="cards">
+
+                <div class="card purple">
+                    <span>📚</span>
+                    <h2 id="bookCount">8</h2>
+                    <p>Books Available</p>
+                </div>
+
+                <div class="card green">
+                    <span>📖</span>
+                    <h2>5</h2>
+                    <p>My Books</p>
+                </div>
+
+                <div class="card pink">
+                    <span>🧠</span>
+                    <h2>82%</h2>
+                    <p>Learning Progress</p>
+                </div>
+
+                <div class="card orange">
+                    <span>✨</span>
+                    <h2>3</h2>
+                    <p>AI Suggestions</p>
+                </div>
+
+            </div>
+
+
+            <div class="two-column">
+
+                <div class="box">
+
+                    <h3>Quick Actions</h3>
+
+                    <div class="quick">
+
+                        <button onclick="showPage('library')">
+                            🔎
+                            <span>Search Books</span>
+                        </button>
+
+                        <button onclick="showPage('mybooks')">
+                            📚
+                            <span>My Books</span>
+                        </button>
+
+                        <button onclick="showPage('ai')">
+                            🤖
+                            <span>AI Recommend</span>
+                        </button>
+
+                        <button onclick="showPage('learning')">
+                            📝
+                            <span>Learning Plan</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                
+
+                <div class="box ai-mini">
+
+                    <h3>🤖 AI Recommendation</h3>
+
+                    <p>
+                        Based on your skills and interests,
+                        AI can suggest useful books.
+                    </p>
+
+                    <button
+                        class="secondary"
+                        onclick="showPage('ai')">
+                        View Recommendations
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="student" class="page">
+
+            <div class="section-title">
+
+                <h2>Student Dashboard</h2>
+
+                <p>
+                    Your academic and learning overview
+                </p>
+
+            </div>
+
+
+            <div class="student-card">
+
+                <div class="student-avatar">
+                    KY
+                </div>
+
+                <div class="student-info">
+
+                    <h3>Godhavari D</h3>
+
+                    <p>
+                        Computer Science Student
+                    </p>
+
+                </div>
+
+                <div class="student-stat">
+                    <b>92%</b>
+                    <span>Attendance</span>
+                </div>
+
+                <div class="student-stat">
+                    <b>8.5</b>
+                    <span>CGPA</span>
+                </div>
+
+                <div class="student-stat">
+                    <b>Good</b>
+                    <span>Performance</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="library" class="page">
+
+            <div class="section-title">
+
+                <h2>📚 Library Dashboard</h2>
+
+                <p>
+                    Search and explore learning resources
+                </p>
+
+            </div>
+
+
+            <div class="search">
+
+                <input
+                    type="text"
+                    id="searchBox"
+                    placeholder="Search books, author or category..."
+                    onkeyup="searchBooks()">
+
+                <button class="primary"
+                        onclick="searchBooks()">
+                    Search
+                </button>
+
+            </div>
+
+
+            <div id="bookList" class="book-grid"></div>
+
+        </section>
+
+
+
+        <!-- ================= MY BOOKS ================= -->
+
+        <section id="mybooks" class="page">
+
+            <div class="section-title">
+
+                <h2>📖 My Books</h2>
+
+                <p>
+                    Currently issued books
+                </p>
+
+            </div>
+
+
+            <div class="table-box">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Book Title</th>
+                            <th>Issued Date</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Java Complete Reference</td>
+                            <td>12 Sep 2026</td>
+                            <td>26 Sep 2026</td>
+                            <td>
+                                <span class="status">
+                                    On Time
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Clean Code</td>
+                            <td>10 Sep 2026</td>
+                            <td>24 Sep 2026</td>
+                            <td>
+                                <span class="status">
+                                    On Time
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Web Development</td>
+                            <td>06 Sep 2026</td>
+                            <td>19 Sep 2026</td>
+                            <td>
+                                <span class="status">
+                                    On Time
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= AI ================= -->
+
+        <section id="ai" class="page">
+
+            <div class="section-title">
+
+                <h2>🤖 AI Book Recommendation</h2>
+
+                <p>
+                    Get personalized book recommendations
+                </p>
+
+            </div>
+
+
+            <div class="ai-box">
+
+                <div class="big-robot">
+                    🤖
+                </div>
+
+                <h2>
+                    AI Learning Assistant
+                </h2>
+
+                <p>
+                    Enter your skills and interests.
+                </p>
+
+
+                <div class="inputs">
+
+                    <input
+                        id="skills"
+                        placeholder="Skills: Java, HTML, SQL">
+
+                    <input
+                        id="interests"
+                        placeholder="Interests: AI, Web, Database">
+
+                </div>
+
+
+                <button
+                    class="primary full"
+                    onclick="recommendBooks()">
+
+                    ✨ Generate AI Recommendations
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="recommendations"
+                class="recommend-grid">
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= LEARNING ================= -->
+
+        <section id="learning" class="page">
+
+            <div class="section-title">
+
+                <h2>🧠 AI Learning Plan</h2>
+
+                <p>
+                    Generate a personalized study roadmap
+                </p>
+
+            </div>
+
+
+            <div class="learning-box">
+
+                <input
+                    id="topic"
+                    placeholder="Enter topic e.g. Java, SQL, AI">
+
+                <button
+                    class="primary"
+                    onclick="generatePlan()">
+
+                    Generate Plan
+
+                </button>
+
+            </div>
+
+
+            <div id="plan"></div>
+
+        </section>
+
+
+
+        <!-- ================= SETTINGS ================= -->
+
+        <section id="settings" class="page">
+
+            <div class="section-title">
+
+                <h2>⚙ Settings</h2>
+
+                <p>
+                    Application preferences
+                </p>
+
+            </div>
+
+
+            <div class="settings box">
+
+                <label>
+                    <input type="checkbox" checked>
+                    AI recommendation notifications
+                </label>
+
+                <label>
+                    <input type="checkbox" checked>
+                    Learning progress reminders
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Book due-date alerts
+                </label>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
