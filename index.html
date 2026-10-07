@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniManage AI - Library & Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">🎓</div>
+            <div>
+                <h2>UniManage AI</h2>
+                <span>Library & Learning</span>
+            </div>
+        </div>
+
+        <nav>
+            <button class="menu active" data-page="dashboard">
+                🏠 <span>Dashboard</span>
+            </button>
+
+            <button class="menu" data-page="student">
+                👩‍🎓 <span>Student</span>
+            </button>
+
+            <button class="menu" data-page="library">
+                📚 <span>Library</span>
+            </button>
+
+            <button class="menu" data-page="mybooks">
+                📖 <span>My Books</span>
+            </button>
+
+            <button class="menu" data-page="ai">
+                🤖 <span>AI Recommendation</span>
+            </button>
+
+            <button class="menu" data-page="learning">
+                📊 <span>Learning Plan</span>
+            </button>
+
+            <button class="menu" data-page="settings">
+                ⚙️ <span>Settings</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="user-mini">
+                <div class="avatar">G</div>
+                <div>
+                    <strong id="sideName">Godhavari</strong>
+                    <small>BCA Student</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <h2 id="pageTitle">Dashboard</h2>
+                <p>Welcome back, <b id="topName">Godhavari</b> 👋</p>
+            </div>
+
+            <div class="top-actions">
+                <button class="icon-btn" onclick="showNotification()">🔔</button>
+                <div class="top-avatar" id="topAvatar">G</div>
+            </div>
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+        <section id="dashboard" class="page active-page">
+
+            <div class="hero">
+                <div>
+                    <span class="badge">✨ AI Powered Learning</span>
+                    <h1>Welcome, <span id="dashName">Godhavari</span>!</h1>
+                    <p>Manage your library and improve your learning with UniManage AI.</p>
+
+                    <div class="hero-buttons">
+                        <button class="primary-btn" onclick="openLibrary()">
+                            📚 Explore Library
+                        </button>
+
+                        <button class="secondary-btn" onclick="openAI()">
+                            🤖 Get AI Recommendation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-icon">🎓</div>
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">📚</div>
+                    <div>
+                        <span>Available Books</span>
+                        <h2 id="availableCount">6</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">📖</div>
+                    <div>
+                        <span>My Books</span>
+                        <h2 id="borrowedCount">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">📊</div>
+                    <div>
+                        <span>Learning Progress</span>
+                        <h2 id="dashProgress">50%</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">🤖</div>
+                    <div>
+                        <span>AI Suggestions</span>
+                        <h2 id="aiCount">3</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="content-grid">
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>📚 Recent Books</h3>
+                            <p>Popular books in your library</p>
+                        </div>
+
+                        <button class="link-btn" onclick="openLibrary()">
+                            View All →
+                        </button>
+                    </div>
+
+                    <div class="book-list">
+
+                        <div class="book-row">
+                            <div class="book-cover">AI</div>
+                            <div>
+                                <strong>Artificial Intelligence</strong>
+                                <small>Stuart Russell</small>
+                            </div>
+                            <span class="category">AI</span>
+                        </div>
+
+                        <div class="book-row">
+                            <div class="book-cover purple-bg">JS</div>
+                            <div>
+                                <strong>JavaScript Guide</strong>
+                                <small>David Flanagan</small>
+                            </div>
+                            <span class="category">Web</span>
+                        </div>
+
+                        <div class="book-row">
+                            <div class="book-cover green-bg">DB</div>
+                            <div>
+                                <strong>Database Systems</strong>
+                                <small>Raghu Ramakrishnan</small>
+                            </div>
+                            <span class="category">DBMS</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="panel ai-panel">
+                    <div class="ai-big">🤖</div>
+                    <h3>AI Learning Assistant</h3>
+                    <p>Get personalized book recommendations based on your interests.</p>
+
+                    <button class="primary-btn full" onclick="openAI()">
+                        Generate Recommendation
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STUDENT ================= -->
+        <section id="student" class="page">
+
+            <div class="section-heading">
+                <div>
+                    <h1>👩‍🎓 Student Profile</h1>
+                    <p>Manage your student information.</p>
+                </div>
+
+                <button class="primary-btn" onclick="openStudentModal()">
+                    ✏️ Edit Profile
+                </button>
+            </div>
+
+            <div class="profile-grid">
+
+                <div class="profile-card">
+                    <div class="large-avatar" id="profileAvatar">G</div>
+                    <h2 id="profileName">Godhavari</h2>
+                    <p id="profileCourse">BCA Student</p>
+
+                    <div class="profile-badge">🎓 Active Student</div>
+                </div>
+
+                <div class="panel">
+                    <h3>Personal Information</h3>
+
+                    <div class="info-grid">
+
+                        <div class="info-box">
+                            <span>Full Name</span>
+                            <strong id="infoName">Godhavari</strong>
+                        </div>
+
+                        <div class="info-box">
+                            <span>Email</span>
+                            <strong id="infoEmail">godhavari@example.com</strong>
+                        </div>
+
+                        <div class="info-box">
+                            <span>Course</span>
+                            <strong id="infoCourse">BCA</strong>
+                        </div>
+
+                        <div class="info-box">
+                            <span>Department</span>
+                            <strong>Computer Applications</strong>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">📚</div>
+                    <div>
+                        <span>Books Read</span>
+                        <h2 id="booksRead">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">🏆</div>
+                    <div>
+                        <span>Achievements</span>
+                        <h2>5</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">🔥</div>
+                    <div>
+                        <span>Learning Streak</span>
+                        <h2>7 Days</h2>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LIBRARY ================= -->
+        <section id="library" class="page">
+
+            <div class="section-heading">
+                <div>
+                    <h1>📚 Library</h1>
+                    <p>Search and borrow your favorite books.</p>
+                </div>
+            </div>
+
+            <div class="search-area">
+
+                <div class="search-box">
+                    🔍
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search books..."
+                    >
+                </div>
+
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="AI">AI</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Database">Database</option>
+                    <option value="Web">Web Technology</option>
+                </select>
+
+            </div>
+
+
+            <div class="library-grid" id="libraryGrid">
+
+                <div class="library-card"
+                     data-title="Artificial Intelligence"
+                     data-author="Stuart Russell"
+                     data-category="AI">
+
+                    <div class="book-large">🤖</div>
+
+                    <div>
+                        <span class="book-category">AI</span>
+                        <h3>Artificial Intelligence</h3>
+                        <p>Stuart Russell</p>
+                    </div>
+
+                    <button class="primary-btn borrow-btn">
+                        Borrow Book
+                    </button>
+                </div>
+
+
+                <div class="library-card"
+                     data-title="Java Programming"
+                     data-author="Herbert Schildt"
+                     data-category="Programming">
+
+                    <div class="book-large purple-bg">☕</div>
+
+                    <div>
+                        <span class="book-category">Programming</span>
+                        <h3>Java Programming</h3>
+                        <p>Herbert Schildt</p>
+                    </div>
+
+                    <button class="primary-btn borrow-btn">
+                        Borrow Book
+                    </button>
+                </div>
+
+
+                <div class="library-card"
+                     data-title="Database Systems"
+                     data-author="Raghu Ramakrishnan"
+                     data-category="Database">
+
+                    <div class="book-large green-bg">🗄️</div>
+
+                    <div>
+                        <span class="book-category">Database</span>
+                        <h3>Database Systems</h3>
+                        <p>Raghu Ramakrishnan</p>
+                    </div>
+
+                    <button class="primary-btn borrow-btn">
+                        Borrow Book
+                    </button>
+                </div>
+
+
+                <div class="library-card"
+                     data-title="Machine Learning"
+                     data-author="Tom Mitchell"
+                     data-category="AI">
+
+                    <div class="book-large orange-bg">🧠</div>
+
+                    <div>
+                        <span class="book-category">AI</span>
+                        <h3>Machine Learning</h3>
+                        <p>Tom Mitchell</p>
+                    </div>
+
+                    <button class="primary-btn borrow-btn">
+                        Borrow Book
+                    </button>
+                </div>
+
+
+                <div class="library-card"
+                     data-title="Web Development"
+                     data-author="Jon Duckett"
+                     data-category="Web">
+
+                    <div class="book-large pink-bg">🌐</div>
+
+                    <div>
+                        <span class="book-category">Web</span>
+                        <h3>Web Development</h3>
+                        <p>Jon Duckett</p>
+                    </div>
+
+                    <button class="primary-btn borrow-btn">
+                        Borrow Book
+                    </button>
+                </div>
+
+
+                <div class="library-card"
+                     data-title="JavaScript Guide"
+                     data-author="David Flanagan"
+                     data-category="Programming">
+
+                    <div class="book-large blue-bg">JS</div>
+
+                    <div>
+                        <span class="book-category">Programming</span>
+                        <h3>JavaScript Guide</h3>
+                        <p>David Flanagan</p>
+                    </div>
+
+                    <button class="primary-btn borrow-btn">
+                        Borrow Book
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MY BOOKS ================= -->
+        <section id="mybooks" class="page">
+
+            <div class="section-heading">
+                <div>
+                    <h1>📖 My Books</h1>
+                    <p>Books currently borrowed by you.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">📖</div>
+                    <div>
+                        <span>Borrowed</span>
+                        <h2 id="myBooksCount">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">⏰</div>
+                    <div>
+                        <span>Due Soon</span>
+                        <h2 id="dueSoon">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✅</div>
+                    <div>
+                        <span>Completed</span>
+                        <h2 id="completedBooks">0</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel">
+                <div id="borrowedBooksList" class="borrowed-list">
+                    <div class="empty-state">
+                        <div>📚</div>
+                        <h3>No books borrowed</h3>
+                        <p>Go to Library and borrow a book.</p>
+
+                        <button class="primary-btn" onclick="openLibrary()">
+                            Explore Library
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= AI ================= -->
+        <section id="ai" class="page">
+
+            <div class="section-heading">
+                <div>
+                    <h1>🤖 AI Recommendation</h1>
+                    <p>Get personalized recommendations.</p>
+                </div>
+            </div>
+
+            <div class="ai-input-panel">
+
+                <div class="form-group">
+                    <label>Your Skills</label>
+                    <input
+                        type="text"
+                        id="skills"
+                        value="HTML, CSS, JavaScript"
+                        placeholder="Example: Java, Python"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Your Interests</label>
+                    <input
+                        type="text"
+                        id="interests"
+                        value="Artificial Intelligence, Web Development"
+                        placeholder="Example: AI, Web Development"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Learning Level</label>
+
+                    <select id="level">
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                </div>
+
+                <button class="primary-btn" onclick="generateAI()">
+                    ✨ Generate Recommendation
+                </button>
+
+            </div>
+
+            <div id="aiResults" class="recommendation-grid">
+
+                <div class="recommend-card">
+                    <div class="recommend-icon">🤖</div>
+                    <span>Recommended</span>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Perfect for learning AI fundamentals.</p>
+                    <button onclick="viewRecommendation('Artificial Intelligence')">
+                        View Details
+                    </button>
+                </div>
+
+                <div class="recommend-card">
+                    <div class="recommend-icon">🌐</div>
+                    <span>Recommended</span>
+                    <h3>Web Development</h3>
+                    <p>Improve your HTML, CSS and JavaScript skills.</p>
+                    <button onclick="viewRecommendation('Web Development')">
+                        View Details
+                    </button>
+                </div>
+
+                <div class="recommend-card">
+                    <div class="recommend-icon">🧠</div>
+                    <span>Recommended</span>
+                    <h3>Machine Learning</h3>
+                    <p>Learn prediction and intelligent systems.</p>
+                    <button onclick="viewRecommendation('Machine Learning')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LEARNING ================= -->
+        <section id="learning" class="page">
+
+            <div class="section-heading">
+                <div>
+                    <h1>📊 Learning Plan</h1>
+                    <p>Track your weekly learning progress.</p>
+                </div>
+            </div>
+
+            <div class="progress-panel">
+                <div>
+                    <h3>Overall Progress</h3>
+                    <p id="learningText">50% completed</p>
+                </div>
+
+                <div class="big-progress">
+                    <div id="learningProgress"></div>
+                </div>
+            </div>
+
+
+            <div class="learning-grid">
+
+                <div class="week-card completed">
+                    <span>WEEK 01</span>
+                    <h3>HTML & CSS</h3>
+                    <p>Learn web page structure and styling.</p>
+                    <button class="complete-btn" data-week="1">
+                        ✓ Completed
+                    </button>
+                </div>
+
+                <div class="week-card completed">
+                    <span>WEEK 02</span>
+                    <h3>JavaScript</h3>
+                    <p>Learn variables, functions and DOM.</p>
+                    <button class="complete-btn" data-week="2">
+                        ✓ Completed
+                    </button>
+                </div>
+
+                <div class="week-card">
+                    <span>WEEK 03</span>
+                    <h3>Java & Spring Boot</h3>
+                    <p>Learn backend development and REST API.</p>
+                    <button class="complete-btn" data-week="3">
+                        Mark Complete
+                    </button>
+                </div>
+
+                <div class="week-card">
+                    <span>WEEK 04</span>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Learn AI concepts and prediction.</p>
+                    <button class="complete-btn" data-week="4">
+                        Mark Complete
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SETTINGS ================= -->
+        <section id="settings" class="page">
+
+            <div class="section-heading">
+                <div>
+                    <h1>⚙️ Settings</h1>
+                    <p>Customize your UniManage AI experience.</p>
+                </div>
+            </div>
+
+
+            <div class="settings-grid">
+
+                <div class="panel">
+
+                    <h3>👤 Profile Settings</h3>
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input id="settingsName" value="Godhavari">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input
+                            id="settingsEmail"
+                            value="godhavari@example.com"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Course</label>
+                        <input
+                            id="settingsCourse"
+                            value="BCA"
+                        >
+                    </div>
+
+                    <button class="primary-btn" onclick="saveSettings()">
+                        💾 Save Changes
+                    </button>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>🔔 Notifications</h3>
+
+                    <div class="setting-row">
+                        <div>
+                            <strong>Book Due Reminder</strong>
+                            <small>Get reminders before due date.</small>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="dueNotification" checked>
+                            <span></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-row">
+                        <div>
+                            <strong>AI Recommendations</strong>
+                            <small>Receive new learning suggestions.</small>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="aiNotification" checked>
+                            <span></span>
+                        </label>
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>🎨 Appearance</h3>
+
+                    <div class="setting-row">
+                        <div>
+                            <strong>Dark Mode</strong>
+                            <small>Change application appearance.</small>
+                        </div>
+
+                        <label class="switch">
+                            <input
+                                type="checkbox"
+                                id="darkMode"
+                            >
+                            <span></span>
+                        </label>
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>🔐 Security</h3>
+
+                    <p class="security-text">
+                        Your student information is stored securely.
+                    </p>
+
+                    <button class="secondary-btn" onclick="securityCheck()">
+                        🔒 Security Check
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+
+<!-- ================= STUDENT MODAL ================= -->
+
+<div class="modal-overlay" id="studentModal">
+
+    <div class="modal">
+
+        <button class="close-btn" onclick="closeStudentModal()">×</button>
+
+        <h2>✏️ Edit Student Profile</h2>
+        <p>Update your personal information.</p>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input id="editName">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input id="editEmail">
+        </div>
+
+        <div class="form-group">
+            <label>Course</label>
+            <input id="editCourse">
+        </div>
+
+        <button class="primary-btn full" onclick="saveStudentProfile()">
+            Save Profile
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= BOOK MODAL ================= -->
+
+<div class="modal-overlay" id="bookModal">
+
+    <div class="modal">
+
+        <button class="close-btn" onclick="closeBookModal()">×</button>
+
+        <div class="modal-book-icon">📚</div>
+
+        <h2 id="bookModalTitle">Book</h2>
+
+        <p id="bookModalText"></p>
+
+        <button class="primary-btn full" onclick="closeBookModal()">
+            Okay
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+    <span id="toastIcon">✓</span>
+    <span id="toastText">Success</span>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
